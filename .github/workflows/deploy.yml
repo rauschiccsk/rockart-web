@@ -1,0 +1,41 @@
+name: Deploy Rockart Web
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Pull latest code
+        run: cd /opt/rockart-web-src && git pull origin main
+
+      - name: Stop existing container
+        run: docker stop rockart-web && docker rm rockart-web || true
+
+      - name: Build Docker image
+        run: cd /opt/rockart-web-src && docker build -t rockart-web .
+
+      - name: Start container
+        run: |
+          docker run -d \
+            --name rockart-web \
+            --restart unless-stopped \
+            -p 9200:80 \
+            rockart-web
+
+      - name: Health check
+        run: |
+          sleep 3
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:9200/)
+          echo "Health check status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "ERROR: Health check failed (HTTP $STATUS)"
+            docker logs rockart-web --tail 20
+            exit 1
+          fi
+          echo "Deployment successful"
+
+      - name: Cleanup old images
+        run: docker image prune -f
