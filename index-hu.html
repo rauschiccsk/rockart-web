@@ -3,46 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rockart — Professzionális szolgáltatások</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Rockart — Udvarok, járdák és teraszok szakszerű térkövezése. Beton térkő és természetes terméskő. Komáromi régió.">
+    <meta name="keywords" content="térkövezés, térburkolás, térkő, terméskő, terasz, járda, udvar, Komárom, Komáromi régió">
+    <meta name="author" content="Rockart s.r.o.">
+    <meta property="og:title" content="Rockart — Szakszerű térkövezés">
+    <meta property="og:description" content="Udvarok, járdák és teraszok szakszerű térkövezése a Komáromi régióban.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rockart.sk">
+    <meta property="og:locale" content="hu_HU">
+    <meta property="og:locale:alternate" content="sk_SK">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="alternate" hreflang="sk" href="index.html">
+    <link rel="alternate" hreflang="hu" href="index-hu.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <title>Rockart — Udvarok, járdák és teraszok szakszerű térkövezése</title>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index-hu.html" class="text-2xl font-bold text-blue-700">Rockart</a>
-            <nav class="flex items-center gap-6">
-                <a href="#about" class="hover:text-blue-600 transition">Rólunk</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Kapcsolat</a>
-                <a href="index.html" class="text-sm bg-gray-100 px-3 py-1 rounded hover:bg-gray-200 transition">SK</a>
+<body>
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="index-hu.html" class="header__logo">Rock<span class="header__logo-accent">Art</span></a>
+            <button class="hamburger" id="hamburger" aria-label="Menü megnyitása" aria-expanded="false">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </button>
+            <nav class="nav" id="nav">
+                <a href="#about" class="nav__link">Rólunk</a>
+                <a href="#services" class="nav__link">Szolgáltatások</a>
+                <a href="#gallery" class="nav__link">Galéria</a>
+                <a href="#contact" class="nav__link">Kapcsolat</a>
+                <a href="index.html" class="nav__lang" title="Slovenská verzia">SK</a>
             </nav>
         </div>
     </header>
-    <section class="hero-section py-24 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Üdvözöljük a Rockartnál</h1>
-            <p class="text-xl text-gray-600 mb-8">Professzionális szolgáltatások a minőség és megbízhatóság jegyében.</p>
-            <a href="#contact" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-blue-700 transition">Lépjen kapcsolatba velünk</a>
-        </div>
-    </section>
-    <section id="about" class="py-16 px-4 bg-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Rólunk</h2>
-            <p class="text-lg text-gray-600">A Rockart professzionális szolgáltatásokat nyújtó vállalkozás. Célunk az ügyfél-elégedettség és a megoldások minősége.</p>
-        </div>
-    </section>
-    <section id="contact" class="py-16 px-4 bg-gray-100">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Kapcsolat</h2>
-            <div class="space-y-3 text-lg text-gray-600">
-                <p>Email: <a href="mailto:info@rockart.sk" class="text-blue-600 hover:underline">info@rockart.sk</a></p>
-                <p>Telefon: <a href="tel:+421000000000" class="text-blue-600 hover:underline">+421 000 000 000</a></p>
-                <p>Cím: Rockart s.r.o., Szlovákia</p>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero__overlay"></div>
+            <div class="container hero__content">
+                <h1 class="hero__title">Szakszerű térkövezés<br>több éves tapasztalattal</h1>
+                <p class="hero__subtitle">Udvarok, járdák és teraszok — beton térkő és természetes terméskő. Minőségi kivitelezés a Komáromi régióban.</p>
+                <a href="#contact" class="btn btn--primary hero__cta">Ingyenes konzultáció</a>
+            </div>
+        </section>
+
+        <section class="section about" id="about">
+            <div class="container">
+                <h2 class="section__title">Rólunk</h2>
+                <div class="about__content">
+                    <div class="about__text">
+                        <p>Több éves tapasztalattal vállaljuk udvarok, járdák és teraszok szakszerű térkövezését. A precíz kivitelezés, a stabil alapozás és a hosszú távú tartósság számunkra alapkövetelmény.</p>
+                        <p>Dolgozunk beton térkővel és természetes terméskővel is, minden munkát megbízhatóan, pontos határidővel és korrekt áron végzünk.</p>
+                        <p>Ha minőségi munkát szeretne kompromisszumok nélkül, forduljon hozzánk bizalommal.</p>
+                    </div>
+                    <div class="about__values">
+                        <div class="value-card">
+                            <div class="value-card__icon">&#9878;</div>
+                            <h3 class="value-card__title">Precizitás</h3>
+                            <p class="value-card__text">Minden részlet fontos — az alap előkészítésétől a fugázásig.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card__icon">&#9203;</div>
+                            <h3 class="value-card__title">Megbízhatóság</h3>
+                            <p class="value-card__text">Betartjuk a megbeszélt határidőket, átláthatóan dolgozunk.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card__icon">&#9733;</div>
+                            <h3 class="value-card__title">Minőség</h3>
+                            <p class="value-card__text">Bevált anyagokat és technológiákat használunk a hosszú távú tartósságért.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt services" id="services">
+            <div class="container">
+                <h2 class="section__title">Szolgáltatásaink</h2>
+                <div class="services__grid">
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 64 64" class="service-card__svg" aria-hidden="true"><rect x="8" y="28" width="12" height="12" rx="1" fill="currentColor" opacity="0.7"/><rect x="22" y="28" width="12" height="12" rx="1" fill="currentColor" opacity="0.85"/><rect x="36" y="28" width="12" height="12" rx="1" fill="currentColor" opacity="0.7"/><rect x="15" y="42" width="12" height="12" rx="1" fill="currentColor" opacity="0.85"/><rect x="29" y="42" width="12" height="12" rx="1" fill="currentColor" opacity="0.7"/><rect x="43" y="42" width="12" height="12" rx="1" fill="currentColor" opacity="0.85"/></svg>
+                        </div>
+                        <h3 class="service-card__title">Beton térkövezés</h3>
+                        <p class="service-card__text">Beton és kiselemes térkő lerakása udvarokra, járdákra, parkolókra és teraszokra. Széles minta- és színválaszték.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 64 64" class="service-card__svg" aria-hidden="true"><path d="M10 50 L20 30 L30 42 L40 25 L54 50 Z" fill="currentColor" opacity="0.8"/><circle cx="45" cy="18" r="5" fill="currentColor" opacity="0.5"/></svg>
+                        </div>
+                        <h3 class="service-card__title">Természetes terméskő</h3>
+                        <p class="service-card__text">Kivitelezés természetes kőből — travertin, gránit, homokkő. Egyedi megjelenés és időtálló elegancia.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 64 64" class="service-card__svg" aria-hidden="true"><rect x="8" y="40" width="48" height="6" rx="2" fill="currentColor" opacity="0.6"/><rect x="12" y="32" width="40" height="6" rx="2" fill="currentColor" opacity="0.75"/><rect x="16" y="24" width="32" height="6" rx="2" fill="currentColor" opacity="0.9"/></svg>
+                        </div>
+                        <h3 class="service-card__title">Alap előkészítés</h3>
+                        <p class="service-card__text">Teljes körű alap előkészítés — földmunka, kavicsozás, tömörítés. Stabil alap a hosszú távú tartósságért.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 64 64" class="service-card__svg" aria-hidden="true"><rect x="10" y="10" width="44" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><line x1="10" y1="50" x2="54" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="32" y1="40" x2="32" y2="50" stroke="currentColor" stroke-width="3"/></svg>
+                        </div>
+                        <h3 class="service-card__title">Konzultáció és tanácsadás</h3>
+                        <p class="service-card__text">Ingyenes helyszíni felmérés és kötelezettségmentes árajánlat. Segítünk az anyag- és megoldásválasztásban.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section gallery" id="gallery">
+            <div class="container">
+                <h2 class="section__title">Referencia galéria</h2>
+                <p class="section__subtitle">Befejezett projektjeink bemutatása</p>
+                <div class="gallery__grid">
+                    <div class="gallery__item">
+                        <img src="images/gallery-1.jpg" alt="Udvar térkövezése beton térkővel" class="gallery__img" loading="lazy">
+                        <div class="gallery__caption">Udvar térkövezése</div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/gallery-2.jpg" alt="Terasz természetes kőből" class="gallery__img" loading="lazy">
+                        <div class="gallery__caption">Kőterasz</div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/gallery-3.jpg" alt="Kerti járda kiselemes térkőből" class="gallery__img" loading="lazy">
+                        <div class="gallery__caption">Kerti járda</div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/gallery-4.jpg" alt="Parkoló beton térkővel" class="gallery__img" loading="lazy">
+                        <div class="gallery__caption">Parkolófelület</div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/gallery-5.jpg" alt="Szegélyek és járdaszegélyek" class="gallery__img" loading="lazy">
+                        <div class="gallery__caption">Szegélyek</div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/gallery-6.jpg" alt="Családi ház bejárati felülete" class="gallery__img" loading="lazy">
+                        <div class="gallery__caption">Bejárati felület</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt contact" id="contact">
+            <div class="container">
+                <h2 class="section__title">Kapcsolat</h2>
+                <div class="contact__grid">
+                    <div class="contact__info">
+                        <h3 class="contact__heading">Lépjen velünk kapcsolatba</h3>
+                        <p class="contact__text">Érdeklik szolgáltatásaink? Ne habozzon kapcsolatba lépni velünk — szívesen készítünk kötelezettségmentes árajánlatot.</p>
+                        <div class="contact__details">
+                            <div class="contact__item">
+                                <span class="contact__icon">&#128100;</span>
+                                <div>
+                                    <strong>Melicher Igor</strong>
+                                </div>
+                            </div>
+                            <div class="contact__item">
+                                <span class="contact__icon">&#128222;</span>
+                                <div>
+                                    <a href="tel:+421907561699" class="contact__link">+421 907 561 699</a>
+                                </div>
+                            </div>
+                            <div class="contact__item">
+                                <span class="contact__icon">&#128205;</span>
+                                <div>
+                                    <span>Komáromi régió</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact__form" action="#" method="POST" id="contactForm">
+                        <div class="form__group">
+                            <label for="name" class="form__label">Teljes név</label>
+                            <input type="text" id="name" name="name" class="form__input" required placeholder="Az Ön neve">
+                        </div>
+                        <div class="form__group">
+                            <label for="phone" class="form__label">Telefonszám</label>
+                            <input type="tel" id="phone" name="phone" class="form__input" placeholder="+421 ...">
+                        </div>
+                        <div class="form__group">
+                            <label for="message" class="form__label">Üzenet</label>
+                            <textarea id="message" name="message" class="form__input form__textarea" rows="5" required placeholder="Írja le projektjét..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary form__submit">Üzenet küldése</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <span class="footer__logo">Rock<span class="header__logo-accent">Art</span></span>
+                <p class="footer__tagline">Szakszerű térkövezés több éves tapasztalattal</p>
+            </div>
+            <div class="footer__contact">
+                <p><strong>Melicher Igor</strong></p>
+                <p><a href="tel:+421907561699" class="footer__link">+421 907 561 699</a></p>
+                <p>Komáromi régió</p>
+            </div>
+            <div class="footer__nav">
+                <a href="#about" class="footer__link">Rólunk</a>
+                <a href="#services" class="footer__link">Szolgáltatások</a>
+                <a href="#gallery" class="footer__link">Galéria</a>
+                <a href="#contact" class="footer__link">Kapcsolat</a>
             </div>
         </div>
-    </section>
-    <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm">
-        <p>© 2025 Rockart. Minden jog fenntartva.</p>
+        <div class="footer__bottom">
+            <div class="container">
+                <p>&copy; 2025 Rockart s.r.o. Minden jog fenntartva.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+    (function() {
+        var hamburger = document.getElementById('hamburger');
+        var nav = document.getElementById('nav');
+        var header = document.getElementById('header');
+        var navLinks = nav.querySelectorAll('.nav__link');
+
+        hamburger.addEventListener('click', function() {
+            var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+            hamburger.classList.toggle('hamburger--active');
+            nav.classList.toggle('nav--open');
+        });
+
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.classList.remove('hamburger--active');
+                nav.classList.remove('nav--open');
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('header--scrolled');
+            } else {
+                header.classList.remove('header--scrolled');
+            }
+        });
+
+        var contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var btn = contactForm.querySelector('.form__submit');
+                btn.textContent = 'Küldés...';
+                btn.disabled = true;
+                setTimeout(function() {
+                    btn.textContent = 'Elküldve ✓';
+                    contactForm.reset();
+                    setTimeout(function() {
+                        btn.textContent = 'Üzenet küldése';
+                        btn.disabled = false;
+                    }, 3000);
+                }, 1000);
+            });
+        }
+    })();
+    </script>
 </body>
 </html>
