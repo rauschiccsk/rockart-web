@@ -1,0 +1,14 @@
+.hero-section {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
+}
+html {
+    scroll-behavior: smooth;
+}
+a {
+    transition: color 0.2s ease;
+}
+@media (max-width: 640px) {
+    nav {
+        gap: 1rem !important;
+    }
+}
