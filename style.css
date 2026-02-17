@@ -781,3 +781,21 @@ h1, h2, h3, h4, h5, h6 {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
 }
+
+/* --- Gallery Categories --- */
+.gallery-category {
+    margin-bottom: 2.5rem;
+}
+
+.gallery-category:last-child {
+    margin-bottom: 0;
+}
+
+.gallery-category h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+}
