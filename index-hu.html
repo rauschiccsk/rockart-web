@@ -306,6 +306,9 @@
                             <textarea id="message" name="message" class="form__input form__textarea" rows="5" required placeholder="Írja le projektjét..."></textarea>
                         </div>
                         <button type="submit" class="btn btn--primary form__submit">Üzenet küldése</button>
+                        <div id="formMessage" style="display:none; padding:15px; background:#fff3cd; border:1px solid #ffc107; border-radius:8px; color:#856404; margin-top:15px; text-align:center; font-size:16px;">
+                            📞 Ez a funkció jelenleg nem elérhető. Kérjük, hívjon minket a fent megadott telefonszámon.
+                        </div>
                     </form>
                 </div>
             </div>
@@ -371,17 +374,15 @@
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+                var msg = document.getElementById('formMessage');
+                if (msg) {
+                    msg.style.display = 'block';
+                }
                 var btn = contactForm.querySelector('.form__submit');
-                btn.textContent = 'Küldés...';
-                btn.disabled = true;
-                setTimeout(function() {
-                    btn.textContent = 'Elküldve ✓';
-                    contactForm.reset();
-                    setTimeout(function() {
-                        btn.textContent = 'Üzenet küldése';
-                        btn.disabled = false;
-                    }, 3000);
-                }, 1000);
+                if (btn) {
+                    btn.textContent = 'Funkcia nie je dostupná';
+                    btn.disabled = true;
+                }
             });
         }
     })();
