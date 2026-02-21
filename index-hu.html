@@ -292,23 +292,26 @@
                             </div>
                         </div>
                     </div>
-                    <form class="contact__form" action="#" method="POST" id="contactForm">
+                    <form class="contact__form" action="#" method="POST" id="contactForm" novalidate>
                         <div class="form__group">
-                            <label for="name" class="form__label">Teljes név</label>
-                            <input type="text" id="name" name="name" class="form__input" required placeholder="Az Ön neve">
+                            <label for="name" class="form__label">Teljes név *</label>
+                            <input type="text" id="name" name="name" class="form__input" required placeholder="Az Ön neve" maxlength="100">
+                        </div>
+                        <div class="form__group">
+                            <label for="email" class="form__label">Email *</label>
+                            <input type="email" id="email" name="email" class="form__input" required placeholder="on@email.sk">
                         </div>
                         <div class="form__group">
                             <label for="phone" class="form__label">Telefonszám</label>
                             <input type="tel" id="phone" name="phone" class="form__input" placeholder="+421 ...">
                         </div>
                         <div class="form__group">
-                            <label for="message" class="form__label">Üzenet</label>
-                            <textarea id="message" name="message" class="form__input form__textarea" rows="5" required placeholder="Írja le projektjét..."></textarea>
+                            <label for="message" class="form__label">Üzenet *</label>
+                            <textarea id="message" name="message" class="form__input form__textarea" rows="5" required placeholder="Írja le projektjét..." maxlength="2000"></textarea>
                         </div>
+                        <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
                         <button type="submit" class="btn btn--primary form__submit">Üzenet küldése</button>
-                        <div id="formMessage" style="display:none; padding:15px; background:#fff3cd; border:1px solid #ffc107; border-radius:8px; color:#856404; margin-top:15px; text-align:center; font-size:16px;">
-                            📞 Ez a funkció jelenleg nem elérhető. Kérjük, hívjon minket a fent megadott telefonszámon.
-                        </div>
+                        <div id="formMessage" style="display:none; padding:15px; border-radius:8px; margin-top:15px; text-align:center; font-size:16px;"></div>
                     </form>
                 </div>
             </div>
@@ -374,16 +377,62 @@
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                var msg = document.getElementById('formMessage');
-                if (msg) {
-                    msg.style.display = 'block';
-                }
                 var btn = contactForm.querySelector('.form__submit');
-                if (btn) {
-                    btn.textContent = 'Funkcia nie je dostupná';
-                    btn.disabled = true;
-                }
+                var msgDiv = document.getElementById('formMessage');
+                var name = contactForm.querySelector('#name').value.trim();
+                var email = contactForm.querySelector('#email').value.trim();
+                var phone = contactForm.querySelector('#phone').value.trim();
+                var message = contactForm.querySelector('#message').value.trim();
+                var honeypot = contactForm.querySelector('[name="honeypot"]').value;
+
+                // Kliensoldali validacio
+                var emailRe = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+                if (!name) { showMsg(msgDiv, 'Kérjük, adja meg a nevét.', 'error'); return; }
+                if (!email || !emailRe.test(email)) { showMsg(msgDiv, 'Kérjük, adjon meg érvényes email címet.', 'error'); return; }
+                if (!message) { showMsg(msgDiv, 'Kérjük, írja meg az üzenetét.', 'error'); return; }
+
+                // Disable button
+                btn.disabled = true;
+                btn.textContent = 'Küldés...';
+                msgDiv.style.display = 'none';
+
+                fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({name: name, email: email, phone: phone, message: message, honeypot: honeypot})
+                })
+                .then(function(res) { return res.json().then(function(d) { return {ok: res.ok, data: d}; }); })
+                .then(function(result) {
+                    if (result.ok) {
+                        showMsg(msgDiv, 'Köszönjük az üzenetét! Hamarosan felvesszük Önnel a kapcsolatot.', 'success');
+                        contactForm.reset();
+                    } else {
+                        showMsg(msgDiv, result.data.message || 'Az üzenet küldése nem sikerült. Kérjük, próbálja újra.', 'error');
+                    }
+                })
+                .catch(function() {
+                    showMsg(msgDiv, 'Az üzenet küldése nem sikerült. Kérjük, próbálja újra.', 'error');
+                })
+                .finally(function() {
+                    btn.disabled = false;
+                    btn.textContent = 'Üzenet küldése';
+                });
             });
+        }
+
+        function showMsg(el, text, type) {
+            if (!el) return;
+            el.textContent = text;
+            el.style.display = 'block';
+            if (type === 'success') {
+                el.style.background = '#d4edda';
+                el.style.border = '1px solid #28a745';
+                el.style.color = '#155724';
+            } else {
+                el.style.background = '#f8d7da';
+                el.style.border = '1px solid #dc3545';
+                el.style.color = '#721c24';
+            }
         }
     })();
     </script>
