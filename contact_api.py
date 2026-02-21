@@ -114,6 +114,7 @@ def send_email(name: str, email: str, phone: str, message: str) -> None:
     msg["From"] = SMTP_USER or f"web@rockart.sk"
     msg["To"] = RECIPIENT
     msg["Reply-To"] = email
+    msg["X-Mailer"] = "Rockart Web Contact Form"
     msg["Subject"] = subject
     msg.attach(MIMEText(body, "plain", "utf-8"))
 
@@ -263,7 +264,10 @@ class ContactHandler(BaseHTTPRequestHandler):
     # --- Vsetky ostatne metody ---
     def do_GET(self) -> None:
         if self.path == "/api/health":
-            self._send_json(200, {"status": "ok", "service": "contact-api"})
+            self._send_json(200, {"status": "ok", "service": "rockart-contact-api"})
+            return
+        if self.path == "/api/contact":
+            self._send_json(405, {"status": "error", "message": "Use POST method"})
             return
         self._send_json(404, {"status": "error", "message": "Not found"})
 
