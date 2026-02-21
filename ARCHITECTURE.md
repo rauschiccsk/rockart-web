@@ -2,7 +2,7 @@
 
 ## Prehľad projektu
 
-**Rockart s.r.o.** je firma špecializujúca sa na profesionálne dláždenie dvorov, chodníkov a terás. Pracuje s betónovou dlažbou aj prírodným kameňom. Pôsobí v Komárňanskom regióne.
+**Rockart** je firma špecializujúca sa na profesionálne dláždenie dvorov, chodníkov a terás. Pracuje s betónovou dlažbou aj prírodným kameňom. Pôsobí v Komárňanskom regióne.
 
 **Cieľová skupina:** Majitelia rodinných domov a firmy v Komárňanskom regióne, ktorí hľadajú kvalitné dláždenie a kamenárske práce. Dvojjazyčná komunita (slovenčina + maďarčina).
 

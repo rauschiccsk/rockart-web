@@ -1,7 +1,7 @@
 # Rockart Web — CLAUDE.md
 
 ## Projekt
-Statická dvojjazyčná webová stránka pre firmu Rockart s.r.o. — profesionálne dláždenie dvorov, chodníkov a terás (SK/HU).
+Statická dvojjazyčná webová stránka pre firmu Rockart — profesionálne dláždenie dvorov, chodníkov a terás (SK/HU).
 
 ## Technológia
 - Čistý HTML5 + CSS3 + Vanilla JS
