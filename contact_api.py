@@ -23,7 +23,7 @@ from threading import Lock
 LISTEN_PORT = int(os.environ.get("CONTACT_API_PORT", "8080"))
 SMTP_HOST = os.environ.get("SMTP_HOST", "localhost")
 SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
-SMTP_USER = os.environ.get("SMTP_USER", "")
+SMTP_USER = os.environ.get("SMTP_USER", "melicher@rockart.sk")
 SMTP_PASS = os.environ.get("SMTP_PASS", "")
 RECIPIENT = os.environ.get("CONTACT_RECIPIENT", "melicher@rockart.sk")
 ALLOWED_ORIGINS = os.environ.get(
@@ -228,15 +228,22 @@ class ContactHandler(BaseHTTPRequestHandler):
         # Odoslanie emailu
         try:
             send_email(name, email, phone, message)
+        except smtplib.SMTPConnectError as exc:
+            log.exception("SMTP connect error — server %s:%s nedostupny: %s", SMTP_HOST, SMTP_PORT, exc)
+            self._send_json(500, {
+                "status": "error",
+                "message": "Mailovy server je nedostupny. Skuste to neskor."
+            })
+            return
         except smtplib.SMTPAuthenticationError:
-            log.exception("SMTP autentifikacia zlyhala")
+            log.exception("SMTP autentifikacia zlyhala pre %s", SMTP_USER)
             self._send_json(500, {
                 "status": "error",
                 "message": "Chyba pri odosielani. Skuste to neskor."
             })
             return
         except smtplib.SMTPException as exc:
-            log.exception("SMTP chyba: %s", exc)
+            log.exception("SMTP chyba pri odosielani: %s", exc)
             self._send_json(500, {
                 "status": "error",
                 "message": "Nepodarilo sa odoslat spravu. Skuste to neskor."
