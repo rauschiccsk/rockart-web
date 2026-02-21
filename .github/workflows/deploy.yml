@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull latest code
-        run: cd /opt/rockart-web-src && git pull origin main
+        run: cd /opt/rockart-web-src && git reset --hard origin/main && git pull origin main
 
       - name: Stop existing container
         run: docker stop rockart-web && docker rm rockart-web || true
