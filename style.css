@@ -300,38 +300,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-@media (min-width: 768px) {
-    .nav {
-        display: flex;
-        position: static;
-        flex-direction: row;
-        align-items: center;
-        gap: 28px;
-        background: transparent;
-        border-bottom: none;
-        padding: 0;
-        box-shadow: none;
-    }
-
-    .nav__link {
-        padding: 4px 0;
-        border-bottom: 2px solid transparent;
-    }
-
-    .nav__link:hover {
-        border-bottom-color: var(--color-accent);
-    }
-
-    .nav__lang {
-        margin-top: 0;
-        margin-left: 4px;
-    }
-
-    .hamburger {
-        display: none;
-    }
-}
-
 /* --- Hamburger --- */
 .hamburger {
     display: flex;
@@ -367,6 +335,38 @@ h1, h2, h3, h4, h5, h6 {
 
 .hamburger--active .hamburger__line:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (min-width: 768px) {
+    .nav {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        gap: 28px;
+        background: transparent;
+        border-bottom: none;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .nav__link {
+        padding: 4px 0;
+        border-bottom: 2px solid transparent;
+    }
+
+    .nav__link:hover {
+        border-bottom-color: var(--color-accent);
+    }
+
+    .nav__lang {
+        margin-top: 0;
+        margin-left: 4px;
+    }
+
+    .hamburger {
+        display: none;
+    }
 }
 
 /* --- Hero --- */
