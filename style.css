@@ -271,23 +271,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lang-active {
-    color: var(--color-accent);
+    color: #4CAF50 !important;
+    font-weight: bold;
+    text-decoration: none;
     cursor: default;
 }
 
 .lang-inactive {
-    color: var(--color-text-secondary);
+    color: #888 !important;
+    font-weight: normal;
     text-decoration: none;
-    transition: color var(--transition);
 }
 
 .lang-inactive:hover {
-    color: var(--color-accent-light);
+    color: #4CAF50 !important;
+    text-decoration: underline;
 }
 
 .lang-separator {
-    color: var(--color-border);
-    user-select: none;
+    color: #888;
+    margin: 0 4px;
 }
 
 @media (min-width: 768px) {
